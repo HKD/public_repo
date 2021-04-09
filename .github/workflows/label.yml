@@ -1,5 +1,5 @@
 name: Labeler
-on: [issues]
+on: [push]
 
 jobs:
   label:
@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Kek
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
